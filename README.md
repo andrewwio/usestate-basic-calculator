@@ -7,6 +7,15 @@ ISSUES:
 [complete] 6. AC displaying '' instead of '0'
 [complete] 7. Hover and focus buttons with white fadeout transition (css)
 
+SOLUTIONS:
+1.
+2.
+3.
+4.
+5. Tried using some functions and methods to drop the leading zero but the answer was to experiment with resetting certain variables and not others
+6. Changed {input} to a messy elseif ternary operator that handles the input and/or previousState
+7. Experimenting until I found the right transition
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
