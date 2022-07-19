@@ -6,7 +6,6 @@
 
 import './styles.css'
 import { useState, useEffect } from 'react'
-import NumberFormat from 'react-number-format'
 
 const ACTIONS = {
   ADD: '+',
@@ -119,6 +118,16 @@ function App() {
     console.log({previousState, currentState, input, operator, total});
   };
 
+  const displayValue = () => {
+    if (input !== "" || input === "0") {
+      return input;
+    } else if (previousState !== '') {
+      return previousState;
+    } else {
+      return;
+    }
+  }
+
   return (
     <div className="container">
       <div className="wrapper">
@@ -136,7 +145,7 @@ function App() {
               thousandSeparator={true}
             />
           )} */}
-          {input !== "" || input === "0" ? 
+          {/* {input !== "" || input === "0" ? 
             <NumberFormat
               value={input}
               displayType={"text"}
@@ -153,7 +162,8 @@ function App() {
                 displayType={"text"}
                 thousandSeparator={true}
               />
-          )}
+          )} */}
+          {displayValue()}
         </div>
         <button className="light-grey" onClick={reset}>AC</button>
         <button className="light-grey" onClick={negate}>+/-</button>
