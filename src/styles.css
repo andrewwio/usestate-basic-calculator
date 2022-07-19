@@ -47,6 +47,8 @@ body {
   color: #FFF;
   font-size: 6rem;
   font-weight: 200;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .light-grey {

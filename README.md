@@ -1,9 +1,9 @@
 ISSUES:
 1. integer then operation then equals should be previousState operation currentState (currently it is 0 operation currentState)
 2. Add 0 to "." so that it displays '0.' instead of just '.'
-3. limit integers
+3. limit integers to 9 and progressively make font smaller
 4. percent and negate then equals displaying '' instead of '0'
-5. pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
+[complete] 5. leading zeros. Pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
 [complete] 6. AC displaying '' instead of '0'
 [complete] 7. Hover and focus buttons with white fadeout transition (css)
 

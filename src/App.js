@@ -1,9 +1,8 @@
 // ISSUES:
 // 1. integer then operation then equals should be previousState operation currentState
 // 2. Add 0 to "."
-// 3. limit integers
+// 3. limit integers to 9 and progressively make font smaller
 // 4. percent and negate then equals
-// 5. pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
 
 import './styles.css'
 import { useState, useEffect } from 'react'
@@ -25,6 +24,12 @@ function App() {
 
   const applyDigit = (e) => {
     if (currentState.includes(".") && e.target.innerText === ".") return;
+
+    if (currentState === "0" && input === "0") {
+      setInput("0");
+      setCurrentState("");
+    }
+
     if (total) {
       setPreviousState("");
     }
@@ -57,7 +62,7 @@ function App() {
   const equals = (e) => {
     // if (prevState is operation then setCurrentState(prevstate))
     // if (prevState === digit then setcurrentstate(prevstate))
-    console.log({previousState, currentState, input, operator, total});
+    console.log({ previousState, currentState, input, operator, total });
 
     if (e.target.innerText === "=") {
       setTotal(true);
@@ -142,12 +147,12 @@ function App() {
               value={previousState}
               displayType={"text"}
               thousandSeparator={true}
-            /> : 
-            <NumberFormat
-            value="0"
-            displayType={"text"}
-            thousandSeparator={true}
-          />
+            /> 
+            : <NumberFormat
+                value={"0"}
+                displayType={"text"}
+                thousandSeparator={true}
+              />
           )}
         </div>
         <button className="light-grey" onClick={reset}>AC</button>
