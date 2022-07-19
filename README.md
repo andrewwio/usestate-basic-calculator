@@ -1,3 +1,11 @@
+ISSUES:
+1. integer then operation then equals should be previousState operation currentState (currently it is 0 operation currentState)
+2. Add 0 to "." so that it displays '0.' instead of just '.'
+3. limit integers
+4. percent and negate then equals displaying '' instead of '0'
+[complete] 5. AC displaying '' instead of '0'
+[complete] 6. Hover and focus buttons with white fadeout transition (css)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
