@@ -1,7 +1,8 @@
 // ISSUES:
-// 1. Sometimes calculator displays nothing... type in integer then press AC, also type in operation then interger then equals
+// 1. integer then operation then equals should be previousState operation currentState
 // 2. Add 0 to "."
-// 3. css fading white button press
+// 3. limit integers
+// 4. percent and negate then equals
 
 import './styles.css'
 import { useState, useEffect } from 'react'
@@ -23,11 +24,9 @@ function App() {
 
   const applyDigit = (e) => {
     if (currentState.includes(".") && e.target.innerText === ".") return;
-
     if (total) {
       setPreviousState("");
     }
-
     currentState
       ? setCurrentState((pre) => pre + e.target.innerText)
       : setCurrentState(e.target.innerText);
@@ -41,6 +40,7 @@ function App() {
   useEffect(() => {
     setInput("0");
   }, []);
+
   const applyOperation = (e) => {
     setTotal(false);
     setOperator(e.target.innerText);
@@ -54,7 +54,11 @@ function App() {
   };
 
   const equals = (e) => {
-    if (e?.target.innerText === "=") {
+    // if (prevState is operation then setCurrentState(prevstate))
+    // if (prevstate === digit then setcurrentstate(prevstate))
+    console.log({previousState, currentState, input, operator, total});
+
+    if (e.target.innerText === "=") {
       setTotal(true);
     }
     let calculation;
@@ -74,9 +78,18 @@ function App() {
       default:
         return;
     }
-    setInput("");
+    setInput("0");
     setPreviousState(calculation);
     setCurrentState("");
+    // if (input === currentState && previousState === '' && total === false) {
+    //   alert("success");
+    //   setCurrentState(input);
+    //   setPreviousState(input);
+    //   setTotal(input);
+    // }
+    // if (input === '0' && currentState === '') {
+    //   setCurrentState(input);
+    // }
   };
 
   const negate = () => {
@@ -97,13 +110,14 @@ function App() {
     setPreviousState("");
     setCurrentState("");
     setInput("0");
+    console.log({previousState, currentState, input, operator, total});
   };
 
   return (
     <div className="container">
       <div className="wrapper">
         <div className="display">
-        {input !== "" || input === "0" ? (
+        {/* {input !== "" || input === "0" ? (
             <NumberFormat
               value={input}
               displayType={"text"}
@@ -115,6 +129,24 @@ function App() {
               displayType={"text"}
               thousandSeparator={true}
             />
+          )} */}
+          {input !== "" || input === "0" ? 
+            <NumberFormat
+              value={input}
+              displayType={"text"}
+              thousandSeparator={true}
+            />
+           : (previousState !== '' ?
+            <NumberFormat
+              value={previousState}
+              displayType={"text"}
+              thousandSeparator={true}
+            /> : 
+            <NumberFormat
+            value="0"
+            displayType={"text"}
+            thousandSeparator={true}
+          />
           )}
         </div>
         <button className="light-grey" onClick={reset}>AC</button>
