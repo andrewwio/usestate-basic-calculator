@@ -10,10 +10,10 @@ ISSUES:
 9. progressively make font smaller
 
 SOLUTIONS:
-1.
+1. 
 2. Used documented formatter
 3. Used documented formatter
-4.
+4. 
 5. Tried using some functions and methods to drop the leading zero but the answer was to experiment with resetting certain variables and not others
 6. Changed {input} to a messy elseif ternary operator that handles the input and/or previousState then changed ternary operator into a normal function
 7. Experimenting until I found the right transition
