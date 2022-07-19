@@ -1,22 +1,24 @@
 ISSUES:
 1. integer then operation then equals should be previousState operation currentState (currently it is 0 operation currentState)
-2. Add 0 to "." so that it displays '0.' instead of just '.'
-3. add commas
+[complete] 2. Add 0 to "." so that it displays '0.' instead of just '.'
+[complete] 3. add commas
 4. percent and negate then equals displaying '' instead of '0'
 [complete] 5. leading zeros. Pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
 [complete] 6. AC displaying '' instead of '0'
 [complete] 7. Hover and focus buttons with white fadeout transition (css)
-8. limit integers to 9 toFixed(9)
+8. limit integers to 9 (use toFixed(9) on numbers or substring(0, 9) on strings)
 9. progressively make font smaller
 
 SOLUTIONS:
 1.
-2.
-3.
+2. Used documented formatter
+3. Used documented formatter
 4.
 5. Tried using some functions and methods to drop the leading zero but the answer was to experiment with resetting certain variables and not others
 6. Changed {input} to a messy elseif ternary operator that handles the input and/or previousState then changed ternary operator into a normal function
 7. Experimenting until I found the right transition
+8. 
+9. 
 
 # Getting Started with Create React App
 
