@@ -6,7 +6,7 @@ ISSUES:
 [complete] 5. leading zeros. Pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
 [complete] 6. AC displaying '' instead of '0'
 [complete] 7. Hover and focus buttons with white fadeout transition (css)
-8. limit integers to 9
+8. limit integers to 9 toFixed(9)
 9. progressively make font smaller
 
 SOLUTIONS:

@@ -14,6 +14,18 @@ const ACTIONS = {
   DIVIDE: '÷'
 }
 
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+  maximumFractionDigits: 9,
+  maximumSignificantDigits: 9,
+  maximumIntegerDigits: 9
+})
+function formatOperand(value) {
+  if (value == null) return
+  const [integer, decimal] = value.split(".")
+  if (decimal == null) return INTEGER_FORMATTER.format(integer)
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+} 
+
 function App() {
   const [previousState, setPreviousState] = useState("");
   const [currentState, setCurrentState] = useState("");
@@ -23,12 +35,10 @@ function App() {
 
   const applyDigit = (e) => {
     if (currentState.includes(".") && e.target.innerText === ".") return;
-
     if (currentState === "0" && input === "0") {
       setInput("0");
       setCurrentState("");
     }
-
     if (total) {
       setPreviousState("");
     }
@@ -66,26 +76,35 @@ function App() {
     if (e.target.innerText === "=") {
       setTotal(true);
     }
+
     let calculation;
     switch (operator) {
       case ACTIONS.ADD:
-        calculation = String(parseFloat(previousState) + parseFloat(currentState));
+        calculation = String(parseFloat(previousState) + parseFloat(input));
         break;
       case ACTIONS.SUBTRACT:
-        calculation = String(parseFloat(previousState) - parseFloat(currentState));
+        calculation = String(parseFloat(previousState) - parseFloat(input));
         break;
       case ACTIONS.MULTIPLY:
-        calculation = String(parseFloat(previousState) * parseFloat(currentState));
+        calculation = String(parseFloat(previousState) * parseFloat(input));
         break;
       case ACTIONS.DIVIDE:
-        calculation = String(parseFloat(previousState) / parseFloat(currentState));
+        calculation = String(parseFloat(previousState) / parseFloat(input));
         break;
       default:
         return;
     }
+    // if (operator !== null && previousState !== '') {
+    //   setInput("0");
+    //   setPreviousState(calculation);
+    //   setCurrentState("");
+    // }
     setInput("0");
     setPreviousState(calculation);
     setCurrentState("");
+    // setInput(calculation);
+    // setPreviousState(calculation);
+    // setCurrentState(calculation);
     // if (input === currentState && previousState === '' && total === false) {
     //   alert("success");
     //   setCurrentState(input);
@@ -122,9 +141,9 @@ function App() {
     if (input !== "" || input === "0") {
       return input;
     } else if (previousState !== '') {
-      return previousState;
+      setInput(previousState);
     } else {
-      return;
+      setInput("0");
     }
   }
 
@@ -163,7 +182,7 @@ function App() {
                 thousandSeparator={true}
               />
           )} */}
-          {displayValue()}
+          {formatOperand(displayValue())}
         </div>
         <button className="light-grey" onClick={reset}>AC</button>
         <button className="light-grey" onClick={negate}>+/-</button>
