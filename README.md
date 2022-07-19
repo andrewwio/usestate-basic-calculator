@@ -3,8 +3,9 @@ ISSUES:
 2. Add 0 to "." so that it displays '0.' instead of just '.'
 3. limit integers
 4. percent and negate then equals displaying '' instead of '0'
-[complete] 5. AC displaying '' instead of '0'
-[complete] 6. Hover and focus buttons with white fadeout transition (css)
+5. pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
+[complete] 6. AC displaying '' instead of '0'
+[complete] 7. Hover and focus buttons with white fadeout transition (css)
 
 # Getting Started with Create React App
 

@@ -3,6 +3,7 @@
 // 2. Add 0 to "."
 // 3. limit integers
 // 4. percent and negate then equals
+// 5. pressing 0 first makes it display in front of the other digits ie '023' instead of '23'
 
 import './styles.css'
 import { useState, useEffect } from 'react'
@@ -55,7 +56,7 @@ function App() {
 
   const equals = (e) => {
     // if (prevState is operation then setCurrentState(prevstate))
-    // if (prevstate === digit then setcurrentstate(prevstate))
+    // if (prevState === digit then setcurrentstate(prevstate))
     console.log({previousState, currentState, input, operator, total});
 
     if (e.target.innerText === "=") {
