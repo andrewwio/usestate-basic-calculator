@@ -1,3 +1,8 @@
+// ISSUES:
+// 1. Sometimes calculator displays nothing... type in integer then press AC, also type in operation then interger then equals
+// 2. Add 0 to "."
+// 3. css fading white button press
+
 import './styles.css'
 import { useState, useEffect } from 'react'
 import NumberFormat from 'react-number-format'
@@ -115,19 +120,19 @@ function App() {
         <button className="light-grey" onClick={reset}>AC</button>
         <button className="light-grey" onClick={negate}>+/-</button>
         <button className="light-grey" onClick={percent}>%</button>
-        <button className="orange" onClick={applyOperation}>÷</button>
+        <button className="orange operation" onClick={applyOperation}>÷</button>
         <button className="dark-grey" onClick={applyDigit}>7</button>
         <button className="dark-grey" onClick={applyDigit}>8</button>
         <button className="dark-grey" onClick={applyDigit}>9</button>
-        <button className="orange" onClick={applyOperation}>×</button>
+        <button className="orange operation" onClick={applyOperation}>×</button>
         <button className="dark-grey" onClick={applyDigit}>4</button>
         <button className="dark-grey" onClick={applyDigit}>5</button>
         <button className="dark-grey" onClick={applyDigit}>6</button>
-        <button className="orange" onClick={applyOperation}>–</button>
+        <button className="orange operation" onClick={applyOperation}>–</button>
         <button className="dark-grey" onClick={applyDigit}>1</button>
         <button className="dark-grey" onClick={applyDigit}>2</button>
         <button className="dark-grey" onClick={applyDigit}>3</button>
-        <button className="orange" onClick={applyOperation}>+</button>
+        <button className="orange operation" onClick={applyOperation}>+</button>
         <button className="dark-grey span-two" onClick={applyDigit}>0</button>
         <button className="dark-grey" onClick={applyDigit}>.</button>
         <button className="orange" onClick={equals}>=</button>
