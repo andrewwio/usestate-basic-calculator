@@ -147,6 +147,25 @@ function App() {
     }
   }
 
+    // change screen's font-size
+  //   switch(result.toString().length) {
+  //     case 7:
+  //         display.style.fontSize = "4.7rem"
+  //         break;
+  //     case 8:
+  //         display.style.fontSize = "4.1rem"
+  //         break;
+  //     case 9: 
+  //         display.style.fontSize = "3.65rem"
+  //         break
+  //     default: return;
+  // }
+  // if(result.toString().length > 9) {
+  //     display.textContent = parseFloat(result).toPrecision(3);
+  // } else {
+  //     display.textContent = result;
+  // }
+
   return (
     <div className="container">
       <div className="wrapper">
