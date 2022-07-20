@@ -147,7 +147,7 @@ function App() {
     }
   }
 
-    // change screen's font-size
+  // change screen's font-size
   //   switch(result.toString().length) {
   //     case 7:
   //         display.style.fontSize = "4.7rem"

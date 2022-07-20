@@ -1,4 +1,5 @@
 ISSUES:
+Maybe change the logic to previousInput, currentInput, result
 1. integer then operation then equals should be previousState operation currentState (currently it is 0 operation currentState)
 [complete] 2. Add 0 to "." so that it displays '0.' instead of just '.'
 [complete] 3. add commas
